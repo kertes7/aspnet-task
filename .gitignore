@@ -1,0 +1,9 @@
+bin/
+obj/
+*.user
+*.suo
+*.log
+*.db
+*.db-shm
+*.db-wal
+src/TaskFlow.Web/App_Data/DataProtectionKeys/
