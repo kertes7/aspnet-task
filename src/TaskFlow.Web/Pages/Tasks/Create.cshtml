@@ -1,0 +1,42 @@
+@page
+@model TaskFlow.Web.Pages.Tasks.CreateModel
+@{
+    ViewData["Title"] = "Create task";
+}
+<section class="page-head">
+    <div>
+        <h1>Create task</h1>
+        <p class="subtitle">Add a new item to the seeded course project.</p>
+    </div>
+    <a class="btn" href="/Tasks">Back</a>
+</section>
+
+<section class="panel">
+    <form method="post" class="form-grid">
+        <div asp-validation-summary="All"></div>
+        <div class="field">
+            <label asp-for="Input.Title"></label>
+            <input asp-for="Input.Title" />
+            <span asp-validation-for="Input.Title"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Input.Description"></label>
+            <textarea asp-for="Input.Description"></textarea>
+            <span asp-validation-for="Input.Description"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Input.Status"></label>
+            <select asp-for="Input.Status" asp-items="Html.GetEnumSelectList<TaskFlow.Domain.WorkItemStatus>()"></select>
+        </div>
+        <div class="field">
+            <label asp-for="Input.DueDate"></label>
+            <input asp-for="Input.DueDate" type="date" />
+        </div>
+        <input asp-for="Input.ProjectId" type="hidden" />
+        <input asp-for="Input.AssigneeId" type="hidden" />
+        <div class="actions">
+            <button class="btn btn-primary" type="submit">Create</button>
+            <a class="btn" href="/Tasks">Cancel</a>
+        </div>
+    </form>
+</section>

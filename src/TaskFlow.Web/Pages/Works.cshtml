@@ -1,0 +1,30 @@
+@page
+@model TaskFlow.Web.Pages.WorksModel
+@{
+    ViewData["Title"] = "Works";
+}
+<section class="page-head">
+    <div>
+        <h1>Works map</h1>
+        <p class="subtitle">Step-by-step delivery map for every practical and laboratory assignment.</p>
+    </div>
+    <a class="btn btn-primary" href="/Tasks">Open app</a>
+</section>
+
+<section class="works-grid">
+@foreach (var stage in Model.Stages)
+{
+    <article class="work-card">
+        <div class="work-card-head">
+            <span class="work-name">@stage.Name</span>
+            <a class="btn" href="@stage.DemoUrl">Demo</a>
+        </div>
+        <h2>@stage.Topic</h2>
+        <p>@stage.Result</p>
+        <dl>
+            <dt>Code to show</dt>
+            <dd>@stage.CodeToShow</dd>
+        </dl>
+    </article>
+}
+</section>
