@@ -1,0 +1,47 @@
+@page
+@model TaskFlow.Web.Pages.Tasks.IndexModel
+@{
+    ViewData["Title"] = "Tasks";
+}
+<section class="page-head">
+    <div>
+        <h1>Tasks</h1>
+        <p class="subtitle">Course project work items stored through EF Core and managed by ASP.NET Core.</p>
+    </div>
+    <a class="btn btn-primary" href="/Tasks/Create">Create task</a>
+</section>
+
+<section class="panel">
+    <table class="task-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Project</th>
+                <th>Assignee</th>
+                <th>Due date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var task in Model.Tasks)
+        {
+            <tr>
+                <td>
+                    <strong>@task.Title</strong><br />
+                    <span class="subtitle">@task.Description</span>
+                </td>
+                <td><span class="badge @task.Status">@task.Status</span></td>
+                <td>@task.ProjectName</td>
+                <td>@task.AssigneeName</td>
+                <td>@task.DueDate.ToShortDateString()</td>
+                <td class="actions">
+                    <a class="btn" href="/Tasks/Details/@task.Id">Details</a>
+                    <a class="btn" href="/Tasks/Edit/@task.Id">Edit</a>
+                    <a class="btn btn-danger" href="/Tasks/Delete/@task.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</section>

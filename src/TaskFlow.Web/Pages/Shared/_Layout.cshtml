@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - TaskFlow</title>
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/Tasks">TaskFlow</a>
+        <nav>
+            <a href="/Tasks">Tasks</a>
+            <a href="/Works">Works</a>
+            <a href="/swagger">Swagger UI</a>
+            <a href="/openapi/v1.json">OpenAPI</a>
+        </nav>
+    </header>
+    <main class="shell">
+        @RenderBody()
+    </main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@page "{id:int}"
+@model TaskFlow.Web.Pages.Tasks.DetailsModel
+@{
+    ViewData["Title"] = "Task details";
+}
+<section class="page-head">
+    <div>
+        <h1>@Model.TaskItem!.Title</h1>
+        <p class="subtitle">Task details returned as DTO data.</p>
+    </div>
+    <div class="actions">
+        <a class="btn" href="/Tasks/Edit/@Model.TaskItem.Id">Edit</a>
+        <a class="btn" href="/Tasks">Back</a>
+    </div>
+</section>
+
+<section class="panel">
+    <dl class="details">
+        <dt>Description</dt>
+        <dd>@Model.TaskItem.Description</dd>
+        <dt>Status</dt>
+        <dd><span class="badge @Model.TaskItem.Status">@Model.TaskItem.Status</span></dd>
+        <dt>Due date</dt>
+        <dd>@Model.TaskItem.DueDate.ToShortDateString()</dd>
+        <dt>Project</dt>
+        <dd>@Model.TaskItem.ProjectName</dd>
+        <dt>Assignee</dt>
+        <dd>@Model.TaskItem.AssigneeName</dd>
+        <dt>Comments</dt>
+        <dd>@Model.TaskItem.CommentsCount</dd>
+    </dl>
+</section>
